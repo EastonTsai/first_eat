@@ -1,0 +1,52 @@
+@import 'styles/App.scss';
+
+.header-container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #bbb;
+}
+
+.header_logo {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+
+  img {
+    width: 120px;
+  }
+}
+
+.header_menu,
+.header_cart {
+  width: 1.5rem;
+  cursor: pointer;
+
+  &:hover {}
+
+  img {
+    width: 100%;
+  }
+}
+
+.header {
+  @media screen and (min-width:768px) {
+    .header_logo {
+      order: 1;
+    }
+
+    .header_menu {
+      display: none;
+    }
+
+    .header_cart {
+      order: 2;
+    }
+  }
+}
