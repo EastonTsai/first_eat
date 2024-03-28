@@ -6,7 +6,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #bbb;
 }
 
 .header_logo {
@@ -23,15 +22,74 @@
   }
 }
 
-.header_menu,
+.header_menu_icon,
 .header_cart {
   width: 1.5rem;
   cursor: pointer;
 
-  &:hover {}
-
   img {
     width: 100%;
+  }
+}
+
+.header_list {
+  display: flex;
+  align-items: center;
+
+  .header_list_list {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    @include hidden-scrollbar;
+
+    a {
+      min-width: 50%;
+      text-align: center;
+      @include p-y(.5rem);
+      @include f-xl;
+      transition: .3s;
+
+      &:hover {
+        color: $color-2;
+      }
+
+      @media screen and (min-width:$view-s) {
+        min-width: 33.3333%;
+      }
+
+      @media screen and (min-width:$view-m) {
+        min-width: 25%;
+      }
+
+      @media screen and (min-width:$view-l) {
+        min-width: 20%;
+      }
+    }
+  }
+
+  svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: .25rem;
+    border-radius: 100%;
+    transition: .3s;
+
+    path {
+      stroke: $gray-1;
+    }
+
+    @media screen and (min-width:$view-m) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-1;
+
+        path {
+          stroke: white;
+        }
+      }
+    }
   }
 }
 

@@ -6,9 +6,78 @@
 
 }
 
+$view-s: 480px;
+$view-m: 720px;
+$view-l: 1024px;
+
+$gray-1: #BDC0BA;
+$gray-2: #91989F;
+$gray-3: #787D7B;
+$gray-4: #656765;
+
+$color-1: #ECB88A;
+$color-2: #E9A368;
+$color-3: #ECB88A;
+$color-4: #ECB88A;
+
+@mixin p-y($rem) {
+  padding-top: $rem;
+  padding-bottom: $rem;
+}
+
+@mixin p-x($rem) {
+  padding-right: $rem;
+  padding-left: $rem;
+}
+
+@mixin m-y($rem) {
+  margin-top: $rem;
+  margin-bottom: $rem;
+}
+
+@mixin m-x($rem) {
+  margin-right: $rem;
+  margin-left: $rem;
+}
+
+@mixin f-xl {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+@mixin f-l {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+@mixin hidden-scrollbar {
+  scrollbar-width: none; // FireFox
+  -ms-overflow-style: none; // IE & Edge
+
+  // Chrome & Safari
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .container {
   width: 85%;
   max-width: 1280px;
   margin-right: auto;
   margin-left: auto;
+}
+
+// .hidden-scrollbar {
+//   scrollbar-width: none; // FireFox
+//   -ms-overflow-style: none; // IE & Edge
+
+//   // Chrome & Safari
+//   &::-webkit-scrollbar {
+//     display: none;
+//   }
+// }
+
+a {
+  text-decoration: none;
+  color: black;
 }
