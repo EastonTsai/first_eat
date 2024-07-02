@@ -1,0 +1,18 @@
+@import 'styles/App.scss';
+
+.home-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page_main-full {
+  flex: 1;
+  overflow-y: scroll;
+  @extend %hidden-scrollbar;
+  // background-image: url('https: //picsum.photos/500/400?random=1');
+}
+
+.home-page_main {
+  height: 100%;
+}

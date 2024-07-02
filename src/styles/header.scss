@@ -1,0 +1,41 @@
+@import 'styles/App.scss';
+
+.header-full {
+  box-shadow: 0px 0px 5px $gray-3;
+  z-index: 9998;
+}
+
+.header {
+  height: 60px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header_shopping-cart {
+  color: $color-2;
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+
+  &>h3 {
+    font-weight: bold;
+    font-size: 2rem;
+    transform: translateY(-2px);
+  }
+}
+
+.header_logo {
+  @include position(absolute, 50%, none, 50%, none);
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  @extend %flex-center;
+  @extend %circle;
+  overflow: hidden;
+}
+
+.header_logo img {
+  width: 90px;
+  height: 90px;
+}

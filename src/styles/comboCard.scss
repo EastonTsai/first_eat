@@ -1,0 +1,50 @@
+@import 'styles/App.scss';
+
+.combo-card-full {
+  width: 50%;
+  @include p-x(.5rem);
+  box-sizing: border-box;
+}
+
+.combo-card {
+  position: relative;
+}
+
+.combo-card_img-wrap {
+  &>img {
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+    vertical-align: middle;
+  }
+}
+
+.combo-card_title {
+  background-color: $color-1;
+  text-align: center;
+  @include p-y(.5rem);
+  color: white;
+  font-size: 1.25rem;
+  letter-spacing: .25rem;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.combo-card_price {
+  height: 50px;
+  width: 50px;
+  @include position(absolute, -10px, none, none, -10px);
+  @extend %circle;
+  background-color: $color-1;
+  @extend %flex-center;
+  flex-direction: column;
+  color: white;
+
+  &>h3 {
+    @extend %f-xl;
+    font-family: 'Jersey 25';
+    transform: translateY(5px);
+  }
+
+  &>p {
+    font-size: .75rem;
+  }
+}
