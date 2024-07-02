@@ -1,0 +1,51 @@
+@import 'styles/App.scss';
+
+.input-quantity {
+  max-width: 100%;
+  @extend %flex-center;
+  @include p-y(.5rem);
+  background-color: white;
+  border-radius: .5rem;
+
+  &>div {
+    @include p-x(1rem);
+  }
+}
+
+.input-quantity_input-wrap {
+
+  &>input {
+    text-align: center;
+    border: none;
+    width: 100%;
+    font-size: 2rem;
+    color: red;
+  }
+
+  >div {
+    @extend %flex-center;
+
+    .price {
+      font-size: 1.25rem;
+      padding-left: 0.25rem;
+    }
+  }
+}
+
+.input-quantity_plus {
+  border-right: solid 1px $gray-1;
+  font-size: 2.5rem;
+
+  &>p {
+    transform: translateY(-2px);
+  }
+}
+
+.input-quantity_minus {
+  border-left: solid 1px $gray-1;
+  font-size: 2.5rem;
+
+  &>p {
+    transform: translateY(-4px);
+  }
+}

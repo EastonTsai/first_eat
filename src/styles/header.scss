@@ -1,110 +1,41 @@
 @import 'styles/App.scss';
 
-.header-container {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header_logo {
-  width: 60px;
-  height: 60px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 100%;
-
-  img {
-    width: 120px;
-  }
-}
-
-.header_menu_icon,
-.header_cart {
-  width: 1.5rem;
-  cursor: pointer;
-
-  img {
-    width: 100%;
-  }
-}
-
-.header_list {
-  display: flex;
-  align-items: center;
-
-  .header_list_list {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    overflow-x: scroll;
-    @include hidden-scrollbar;
-
-    a {
-      min-width: 50%;
-      text-align: center;
-      @include p-y(.5rem);
-      @include f-xl;
-      transition: .3s;
-
-      &:hover {
-        color: $color-2;
-      }
-
-      @media screen and (min-width:$view-s) {
-        min-width: 33.3333%;
-      }
-
-      @media screen and (min-width:$view-m) {
-        min-width: 25%;
-      }
-
-      @media screen and (min-width:$view-l) {
-        min-width: 20%;
-      }
-    }
-  }
-
-  svg {
-    width: 1.75rem;
-    height: 1.75rem;
-    padding: .25rem;
-    border-radius: 100%;
-    transition: .3s;
-
-    path {
-      stroke: $gray-1;
-    }
-
-    @media screen and (min-width:$view-m) {
-      cursor: pointer;
-
-      &:hover {
-        background-color: $color-1;
-
-        path {
-          stroke: white;
-        }
-      }
-    }
-  }
+.header-full {
+  box-shadow: 0px 0px 5px $gray-3;
+  z-index: 9998;
 }
 
 .header {
-  @media screen and (min-width:768px) {
-    .header_logo {
-      order: 1;
-    }
+  height: 60px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
-    .header_menu {
-      display: none;
-    }
+.header_shopping-cart {
+  color: $color-2;
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
 
-    .header_cart {
-      order: 2;
-    }
+  &>h3 {
+    font-weight: bold;
+    font-size: 2rem;
+    transform: translateY(-2px);
   }
+}
+
+.header_logo {
+  @include position(absolute, 50%, none, 50%, none);
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  @extend %flex-center;
+  @extend %circle;
+  overflow: hidden;
+}
+
+.header_logo img {
+  width: 90px;
+  height: 90px;
 }

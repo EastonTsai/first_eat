@@ -1,0 +1,9 @@
+@import 'styles/App.scss';
+
+.combo {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  @include p-y(1.5rem);
+}

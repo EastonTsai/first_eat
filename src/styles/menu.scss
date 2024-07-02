@@ -1,0 +1,50 @@
+@import 'styles/App.scss';
+
+.menu {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu_select {
+  overflow-x: scroll;
+  @extend %hidden-scrollbar;
+  display: flex;
+
+  &>.menu_select_option {
+    width: 20%;
+    height: 50px;
+    text-align: center;
+    letter-spacing: .25rem;
+    color: $color-4;
+    line-height: 50px;
+    flex-shrink: 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      @include position(absolute, none, .25rem, 0, 0);
+      height: 2px;
+      transition-duration: .5s;
+      background-color: transparent;
+    }
+  }
+
+  &>.focus {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: $color-3;
+    transition-duration: .5s;
+
+    &::after {
+      background-color: $color-3;
+    }
+  }
+}
+
+.menu_list {
+  flex: 1;
+  @include p-y(1rem);
+  overflow-y: scroll;
+  @extend %hidden-scrollbar;
+}

@@ -1,0 +1,104 @@
+@import 'styles/App.scss';
+
+.main-selection-full {
+  // @include position(fixed, none, 0, 0, 0);
+  z-index: 9998;
+  padding-bottom: .5rem;
+  box-shadow: 0 0 1rem $gray-1;
+  background-color: $color-2;
+}
+
+.main-selection {
+  height: 70px;
+  border-bottom: solid 1px white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.25rem;
+
+  &>div {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+  }
+}
+
+.main-selection_checkout {
+  position: relative;
+  min-width: 2rem;
+}
+
+.main-selection_checkout_circle {
+  @include position(absolute, 50%, none, 50%, none);
+  transform: translate(-50%, -70%);
+  width: 80px;
+  height: 80px;
+  @extend %circle;
+  background-color: $color-2;
+  cursor: pointer;
+  @extend %flex-center;
+  flex-direction: column;
+  color: white;
+
+  &>.main-selection_checkout_circle_text {
+    text-align: center;
+    animation-name: shake;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    @extend %background-clip_text;
+    background-image: linear-gradient(115deg, $gray-4 50%, $color-2);
+  }
+
+  & h2 {
+    font-family: 'Jersey 25';
+    font-size: 2.5rem;
+  }
+
+  & p {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .5rem;
+    transform: translateX(.25rem);
+  }
+}
+
+// .isFocus {
+//   &::before {
+//     content: '';
+//     display: block;
+//     margin: auto;
+//     width: 20px;
+//     height: 20px;
+//     background: url('../files/chevrons-up.svg') center center no-repeat;
+//     background-size: 150%;
+//   }
+// }
+
+.arrow-top {
+  height: 0;
+  overflow: hidden;
+  transition-duration: .3s;
+
+  &>img {
+    display: block;
+    margin: auto;
+  }
+}
+
+.isFocus {
+  height: 24px;
+}
+
+@keyframes shake {
+  from {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
