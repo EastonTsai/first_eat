@@ -6,12 +6,16 @@ const MealCard = (props: {
   remark?: string[],
   price: number,
   picture?: string,
+  onClick: (title: string, price: number, remark?: string[]) => void,
 }) => {
-  const { title, remark, price, picture } = props
+  const { title, remark, price, picture, onClick } = props
 
   return (
     <div className="meal-card">
-      <div className='meal-card_text'>
+      <div
+        className='meal-card_text'
+        onClick={() => onClick(title, price, remark)}
+      >
         <h2>{title}</h2>
         <div className='meal-card_text_remark'>
           {remark?.map((item, index) =>

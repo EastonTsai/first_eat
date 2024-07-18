@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { getMeals, getMealsCategory } from 'server/server'
 import 'styles/menu.scss'
 import MealCard from './MealCard'
+import CheckMenuModel from './CheckMenuModel'
 
 type meal = {
   name: string,
@@ -9,12 +10,24 @@ type meal = {
   remark: string[],
   picture: string,
 }
-
-const Menu = () => {
+type mealData = {
+  title: string,
+  price: number,
+  remark: string[],
+}
+const Menu = (props: {
+  onAddShoppingCartNum: () => void,
+}) => {
+  const { onAddShoppingCartNum } = props
   const [category, setCategory] = useState<string[]>([])
   const [focusCategory, setFocusCategory] = useState(category[0])
+  const [viewCheckModel, setViewCheckModel] = useState(false)
   const [meals, setMeals] = useState<meal[]>([])
+  const [mealData, setMealData] = useState<mealData>()
 
+  // useEffect(() => {
+  //   setViewCheckModel(!viewCheckModel)
+  // }, [mealData])
   useEffect(() => {
     if (category.length < 1) {
       const array = getMealsCategory()
@@ -30,6 +43,22 @@ const Menu = () => {
       setMeals(meals)
     }
   }, [focusCategory])
+
+  const handelClickMeal = (title?: string, price?: number, remark?: string[]) => {
+    if (title && price && remark) {
+      const meal = {
+        title,
+        price,
+        remark
+      }
+      setMealData(meal)
+      setViewCheckModel(!viewCheckModel)
+      return
+    }
+    setViewCheckModel(!viewCheckModel)
+  }
+
+
   return (
     <div className="menu_full">
       <div className='menu container'>
@@ -52,10 +81,18 @@ const Menu = () => {
               price={meal.price}
               remark={meal.remark}
               picture={meal.picture}
+              onClick={handelClickMeal}
             />
           )}
         </div>
       </div>
+      {viewCheckModel &&
+        <CheckMenuModel
+          onClick={handelClickMeal}
+          onAddShoppingCartNum={onAddShoppingCartNum}
+          mealData={mealData}
+        />
+      }
     </div>
   )
 }

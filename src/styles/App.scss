@@ -150,3 +150,14 @@ $color-4: #ECB88A;
   background-clip: text; //瀏覽器將背景圖片剪裁到文字的形狀中
   color: transparent; //使文字為透明色, 好讓背景色透出來
 }
+
+%model_full {
+  @extend %flex-center;
+  @include position(fixed, 0, 0, 0, 0);
+  z-index: 9999;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, .5);
+  flex-direction: column;
+  row-gap: 2rem;
+}

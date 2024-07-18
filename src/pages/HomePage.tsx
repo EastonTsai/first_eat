@@ -33,7 +33,7 @@ const HomePage = () => {
         <main className='home-page_main-full'>
           <div className='home-page_main'>
             {current === selection[0] && <Combo onAddShoppingCartNum={handleAddShoppingCartNum} />}
-            {current === selection[1] && <Menu />}
+            {current === selection[1] && <Menu onAddShoppingCartNum={handleAddShoppingCartNum} />}
             {current === selection[3] && <Favorite />}
             {current === selection[4] && <About />}
           </div>
